@@ -1,0 +1,42 @@
+%nav
+  .nav-container
+    .nav-left
+      .logo
+        %a{:href => "#{root_path}"}
+          %img{:src => "/assets/logo.svg", :alt => "vend logo"}/
+      .nav-inputs
+        %input.search{:type => "text", :placeholder => "Search Vend..."}/
+        %input.location{:type => "text", :placeholder => "My Location"}/
+      
+    .nav-right
+      .sell-stuff
+        = link_to "Sell stuff", new_listing_path
+
+      .messaging
+        
+      .user
+        %img{:src => "#", :alt => ""}/
+
+    .nav-categories
+      %ul
+        %li
+          
+          = link_to "All items", root_path
+        %li
+          
+          %a{:href => "#"} Cars & Trucks
+        %li
+          
+          %a{:href => "#"} Furniture
+        %li
+          
+          %a{:href => "#"} Electronics
+        %li
+          
+          %a{:href => "#"} Baby & Kids
+        %li
+          
+          %a{:href => "#"} Clothing & Shoes
+        %li
+          %a{:href => "#"} More
+

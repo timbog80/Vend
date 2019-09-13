@@ -1,0 +1,5 @@
+- @listings.each do |listing|
+  %h3= link_to listing.title, listing_path(listing)
+  %p= listing.description
+  
+  = link_to "Edit", edit_listing_path(listing)
