@@ -11,6 +11,7 @@ body {
   margin: 0;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
+  background: #FBFBFB;
 }
 
 a {
@@ -21,6 +22,7 @@ a {
 nav {
   margin-top: 20px;
   border-bottom: 1px solid #eee;
+  background: #FFFFFF;
 }
 
 .nav-container {
@@ -81,7 +83,26 @@ nav {
 
 .nav-right {
   float: right;
+  height: 43px;
 }
+
+.dropdown {
+  float: right;
+
+  .sign-in {
+    background: none;
+  }
+
+  a {
+    display: inline-block;
+    background: rgb(10,122,255);
+    background: linear-gradient(300deg, rgba(10,122,255,1) 0%, rgba(55,38,176,1) 100%);
+    vertical-align: middle;
+    border-radius: 100px;
+    padding: 13px 25px;
+    color: #FFFFFF;
+  }
+} 
 
 .nav-categories {
   float: left;

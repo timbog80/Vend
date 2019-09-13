@@ -10,11 +10,11 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new
+    @listing = current_user.listings.build
   end
 
   def create
-    @listing = Listing.new(set_listing)
+    @listing = current_user.listings.build(set_listing)
     if @listing.save
       redirect_to root_path
     else

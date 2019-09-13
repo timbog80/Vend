@@ -10,12 +10,19 @@
       
     .nav-right
       .sell-stuff
-        = link_to "Sell stuff", new_listing_path
+        
 
       .messaging
         
-      .user
-        %img{:src => "#", :alt => ""}/
+       
+
+      .dropdown
+        - if user_signed_in?
+          = link_to "Log out", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Sign in", new_user_registration_path
+          = link_to "Start selling", new_user_registration_path
+
 
     .nav-categories
       %ul
