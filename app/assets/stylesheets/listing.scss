@@ -2,9 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
 
 .content-container {
   width: 1080px;
   margin: 0 auto;
+  @include clearfix;
+}
+
+.notice, .alert {
+  margin: 0;
+}
+
+.listings {
+  width: 100%;
   margin-top: 20px;
+
+  .box {
+    width: 200px;
+    padding: 0;
+    margin: 0 0 20px 0;
+    position: relative;
+    border: 1px solid #eee;
+
+
+    img {
+      width: 100%;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+
+  .listing-info {
+    background: white;
+    box-sizing: border-box;
+    padding: .75rem;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    a {
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 400;
+      display: block;
+      color: #222222;
+    }
+
+    .author {
+      font-size: 20px;
+      color: #555555;
+      font-weight: 700;
+      letter-spacing: .2px;
+      margin: .25rem 0;
+    }
+  }
 }

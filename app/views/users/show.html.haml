@@ -1,0 +1,37 @@
+.profile-header
+  .profile-banner
+    .box-shadow
+    = image_tag url_for(@user.banner_image) if @user.banner_image.attached?
+  
+  .profile-info
+    = link_to @user.firstname, user_path(@user)
+    %br/
+    %p
+      Joined
+      = @user.created_at.strftime("%b %Y")
+    - if current_user == @user
+      = link_to "Edit Profile", edit_user_registration_path, class: "user-option"
+    - else
+      = link_to "Follow", edit_user_registration_path, class: "user-option"
+
+  .profile-image
+    = image_tag url_for(@user.profile_image) if @user.profile_image.attached?
+
+.user-categories
+  %ul
+    %li
+      = link_to "Selling", root_path
+    %li
+      = link_to "Sold", root_path
+    %li
+      = link_to "Saved", root_path
+
+
+.listings
+  - @listings.each do |listing|
+    .box
+      - if listing.images.attached?
+        = image_tag listing.images.first
+      .listing-info
+        = link_to listing.title, listing_path(listing), class: "listing-title"
+        = link_to listing.description, user_path(@user), class: "author"

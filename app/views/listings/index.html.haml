@@ -1,6 +1,9 @@
-- @listings.each do |listing|
-  %h3= link_to listing.title, listing_path(listing)
-  %p= listing.description
-  %p= listing.user.email
-  
-  = link_to "Edit", edit_listing_path(listing)
+.listings
+  - @listings.each do |listing|
+    .box
+      = image_tag(listing.images.first)
+      .listing-box-shadow
+        .listing-info
+          = link_to listing.title, listing_path(listing), class: "listing-title"
+          = link_to listing.description, user_path(listing.user), class: "author"
+          %p Vancouver, WA

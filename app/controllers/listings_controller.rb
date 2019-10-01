@@ -1,8 +1,10 @@
 class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @listings = Listing.all.order("created_at DESC")
+    
   end
 
   def show
@@ -14,7 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = current_user.listings.build(set_listing)
+    @listing = current_user.listings.build(listing_params)
     if @listing.save
       redirect_to root_path
     else
@@ -27,7 +29,7 @@ class ListingsController < ApplicationController
   end
 
   def update
-    if @listing.update(set_listing)
+    if @listing.update(listing_params)
       redirect_to listing_path(@listing)
     else
       render 'edit'
@@ -41,8 +43,8 @@ class ListingsController < ApplicationController
 
   private
 
-  def set_listing
-    params.require(:listing).permit(:title, :description)
+  def listing_params
+    params.require(:listing).permit(:title, :description, :lat, :lng, images: [])
   end
 
   def find_listing

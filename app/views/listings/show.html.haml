@@ -1,5 +1,6 @@
 %h4= @listing.title
 %p= @listing.description
+= image_tag @listing.images.first
 
 = link_to "Edit", edit_listing_path(@listing)
 = link_to "Delete", listing_path(@listing), method: :delete
